@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Google Fonts - Deep Psychology Aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;600&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -43,39 +46,45 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
+  /* Deep Psychology Aesthetic - Primary Colors */
+  --primary: oklch(0.45 0.18 260); /* Deep Indigo Blue */
+  --primary-foreground: oklch(0.98 0.001 0);
+  --sidebar-primary: oklch(0.45 0.18 260);
+  --sidebar-primary-foreground: oklch(0.98 0.001 0);
+  
+  /* Accent Colors - Soft Violet & Warm Gold */
+  --accent: oklch(0.65 0.15 280); /* Soft Violet */
+  --accent-foreground: oklch(0.98 0.001 0);
+  
+  /* Chart Colors - Warm to Cool Gradient */
+  --chart-1: oklch(0.65 0.15 280); /* Violet */
+  --chart-2: oklch(0.60 0.12 270); /* Deep Purple */
+  --chart-3: oklch(0.45 0.18 260); /* Indigo */
+  --chart-4: oklch(0.40 0.15 250); /* Dark Blue */
+  --chart-5: oklch(0.35 0.12 240); /* Navy */
+  
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.001 0); /* Pearl White */
+  --foreground: oklch(0.25 0.02 260); /* Deep Slate */
+  --card: oklch(1 0 0); /* Pure White */
+  --card-foreground: oklch(0.25 0.02 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  --popover-foreground: oklch(0.25 0.02 260);
+  --secondary: oklch(0.95 0.005 280); /* Light Violet */
+  --secondary-foreground: oklch(0.30 0.02 260);
+  --muted: oklch(0.90 0.003 280); /* Muted Violet */
+  --muted-foreground: oklch(0.50 0.08 260);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --border: oklch(0.92 0.004 280); /* Light Border */
+  --input: oklch(0.95 0.002 280);
+  --ring: oklch(0.65 0.15 280); /* Violet Ring */
+  --sidebar: oklch(0.98 0.001 0);
+  --sidebar-foreground: oklch(0.25 0.02 260);
+  --sidebar-accent: oklch(0.95 0.005 280);
+  --sidebar-accent-foreground: oklch(0.25 0.02 260);
+  --sidebar-border: oklch(0.92 0.004 280);
+  --sidebar-ring: oklch(0.65 0.15 280);
 }
 
 .dark {
@@ -118,7 +127,34 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Deep Psychology Typography */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -131,9 +167,74 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
+  
+  /* Deep Psychology Animations */
+  @keyframes ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes halo {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(124, 58, 237, 0.6);
+    }
+  }
+  
+  @keyframes float-up {
+    0% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+  }
 }
 
 @layer components {
+  /* Deep Psychology Ripple Effect */
+  .ripple {
+    animation: ripple 0.8s ease-out;
+  }
+  
+  /* Halo Effect for Archetypes */
+  .halo {
+    animation: halo 2s ease-in-out infinite;
+  }
+  
+  /* Float Up Animation */
+  .float-up {
+    animation: float-up 0.6s ease-out;
+  }
+  
+  /* Smooth Gradient Background */
+  .gradient-bg {
+    background: linear-gradient(135deg, oklch(0.98 0.001 0) 0%, oklch(0.95 0.005 280) 100%);
+  }
+  
+  /* Deep Psychology Card Style */
+  .psychology-card {
+    @apply bg-white rounded-xl shadow-lg border border-slate-100;
+    transition: all 0.3s ease;
+  }
+  
+  .psychology-card:hover {
+    @apply shadow-2xl;
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+  }
+  
   /**
    * Custom container utility that centers content and adds responsive padding.
    *
